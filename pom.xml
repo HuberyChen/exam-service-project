@@ -10,7 +10,6 @@
     <version>1.0</version>
     <modules>
         <module>exam-service</module>
-        <module>core</module>
     </modules>
 
 
