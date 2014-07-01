@@ -1,7 +1,7 @@
 package com.core.database;
 
-import com.core.platform.monitor.web.ServiceMonitor;
-import com.core.platform.monitor.web.ServiceStatus;
+import com.core.platform.monitor.ServiceMonitor;
+import com.core.platform.monitor.ServiceStatus;
 import com.core.utils.StringUtils;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.beans.factory.DisposableBean;

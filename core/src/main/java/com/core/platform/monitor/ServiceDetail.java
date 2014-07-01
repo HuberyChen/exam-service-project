@@ -1,4 +1,4 @@
-package com.core.platform.monitor.web;
+package com.core.platform.monitor;
 
 public class ServiceDetail {
     private ServiceStatus status;

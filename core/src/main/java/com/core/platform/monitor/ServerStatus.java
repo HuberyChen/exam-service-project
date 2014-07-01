@@ -1,4 +1,4 @@
-package com.core.platform.monitor.web;
+package com.core.platform.monitor;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

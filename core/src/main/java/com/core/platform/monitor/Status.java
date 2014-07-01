@@ -1,4 +1,4 @@
-package com.core.platform.monitor.web;
+package com.core.platform.monitor;
 
 import com.core.xml.XMLBuilder;
 

@@ -43,7 +43,8 @@ public class AppConfig extends DefaultAppConfig {
         factoryBean.setDataSource(dataSource());
         factoryBean.setPackagesToScan(AppConfig.class.getPackage().getName());
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        vendorAdapter.setDatabasePlatform("org.hibernate.dialect.MySQL5Dialect");
+//        vendorAdapter.setDatabasePlatform("org.hibernate.dialect.MySQL5Dialect");
+        vendorAdapter.setDatabasePlatform("org.hibernate.dialect.SQLServer2008Dialect");
         vendorAdapter.setShowSql(true);
         factoryBean.setJpaVendorAdapter(vendorAdapter);
         return factoryBean;
