@@ -9,9 +9,6 @@ import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author neo
- */
 public class JPAAccess {
 
     private EntityManager entityManager;

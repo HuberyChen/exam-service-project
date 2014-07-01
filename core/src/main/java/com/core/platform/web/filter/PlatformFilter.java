@@ -8,9 +8,6 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import java.io.IOException;
 
-/**
- * @author neo
- */
 public class PlatformFilter implements Filter {
 
     private static final String UTF_8 = "UTF-8";
