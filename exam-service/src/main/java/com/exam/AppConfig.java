@@ -19,7 +19,8 @@ import java.sql.Connection;
 @Configuration
 @EnableTransactionManagement(proxyTargetClass = true)
 @ComponentScan(basePackageClasses = AppConfig.class)
-public class AppConfig {
+public class AppConfig extends DefaultAppConfig {
+
     @Inject
     Environment env;
 
