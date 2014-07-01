@@ -2,6 +2,7 @@ package com.exam;
 
 import com.core.database.ConnectionPoolDataSource;
 import com.core.database.JPAAccess;
+import com.core.platform.DefaultAppConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -32,7 +33,7 @@ public class AppConfig extends DefaultAppConfig {
         dataSource.setUsername(env.getRequiredProperty("jdbc.username"));
         dataSource.setPassword(env.getRequiredProperty("jdbc.password"));
         dataSource.setValidationQuery("select 1");
-        dataSource.setDatabaseName("APILogDB");
+        dataSource.setDatabaseName(env.getRequiredProperty("jdbc.databaseName"));
         dataSource.setDefaultTransactionIsolation(Connection.TRANSACTION_READ_UNCOMMITTED);
         return dataSource;
     }
@@ -43,8 +44,8 @@ public class AppConfig extends DefaultAppConfig {
         factoryBean.setDataSource(dataSource());
         factoryBean.setPackagesToScan(AppConfig.class.getPackage().getName());
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-//        vendorAdapter.setDatabasePlatform("org.hibernate.dialect.MySQL5Dialect");
-        vendorAdapter.setDatabasePlatform("org.hibernate.dialect.SQLServer2008Dialect");
+        vendorAdapter.setDatabasePlatform("org.hibernate.dialect.MySQL5Dialect");
+//        vendorAdapter.setDatabasePlatform("org.hibernate.dialect.SQLServer2008Dialect");
         vendorAdapter.setShowSql(true);
         factoryBean.setJpaVendorAdapter(vendorAdapter);
         return factoryBean;
