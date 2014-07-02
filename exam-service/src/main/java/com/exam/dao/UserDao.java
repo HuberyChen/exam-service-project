@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Inject;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author hubery
@@ -19,6 +21,12 @@ public class UserDao {
     public int save(User user) {
         jpaAccess.save(user);
         return user.getId();
+    }
+
+    public User get(String name) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("name", name);
+        return jpaAccess.findUniqueResult(" from " + User.class.getName() + " where name = :name", params);
     }
 
     public User get(int id) {

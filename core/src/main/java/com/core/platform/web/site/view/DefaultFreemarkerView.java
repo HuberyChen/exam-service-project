@@ -34,6 +34,9 @@ public class DefaultFreemarkerView extends FreeMarkerView {
     public void afterPropertiesSet() throws Exception {
         super.afterPropertiesSet();
         ApplicationContext applicationContext = getApplicationContext();
+        siteSettings = applicationContext.getBean(SiteSettings.class);
+        cdnSettings = applicationContext.getBean(CDNSettings.class);
+        deploymentSettings = applicationContext.getBean(DeploymentSettings.class);
         viewResolver = applicationContext.getBean(DefaultFreemarkerViewResolver.class);
     }
 

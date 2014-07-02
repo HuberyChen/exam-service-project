@@ -21,9 +21,20 @@ public class User {
     @Column(name = "Name")
     private String name;
 
+    @Column(name = "Password")
+    private String password;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "Permission")
     private Permission permission;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public int getId() {
         return id;
