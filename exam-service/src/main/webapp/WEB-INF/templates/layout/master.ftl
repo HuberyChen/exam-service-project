@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <title>Quidsi, Inc. |Log Analyzing</title>
+    <meta charset="utf-8"/>
+<@css href="ui.datepicker.min.css,public.css,foundation.min.css,searchportal.css" rel="stylesheet" type="text/css"/>
+<@js src="json2.js,jquery.min.js,jquery.form.js,common.js,ui.datepicker.js,jquery.validate.js"/>
+<@js src="foundation/foundation.js"/>
+<@js src="foundation/foundation.reveal.js"/>
+<@js src="foundation/foundation.topbar.js"/>
+<@js src="foundation/foundation.forms.js"/>
+    <script type="text/javascript">
+        golbalRootUrl = "<@url value='/' />";
+    </script>
+</head>
+<body>
+<nav class="top-bar">
+    <ul class="title-area">
+        <li class="name">
+            <h1><a href="<@url value='/home'/>/"><span style="color:White;">Exam Service</span></a></h1>
+        </li>
+    </ul>
+    <ul class="right">
+        <li class="has-form"><a style="margin-left: 5px;" class="small radius button" href="<@url value='/signOut'/>">Logout</a></li>
+    </ul>
+<@permissionAllow allow="admin">
+    <ul class="right">
+        <li class="has-form"><a style="margin-left: 5px;" class="small radius button" href="<@url value='/analyzing'/>">Exam Service</a></li>
+    </ul>
+</@permissionAllow>
+</nav>
+
+<script>
+    //$(document).foundation();
+</script>
+<@body/>
+</body>
+<script>$(document).foundation();</script>
