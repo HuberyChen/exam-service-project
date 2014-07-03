@@ -1,7 +1,7 @@
 package com.core.platform.web.site.tag;
 
 import com.core.http.HTTPConstants;
-import com.core.platform.DeploymentSettings;
+import com.core.platform.web.DeploymentSettings;
 import com.core.platform.web.site.cdn.CDNSettings;
 import com.core.platform.web.url.URLBuilder;
 import com.core.utils.AssertUtils;

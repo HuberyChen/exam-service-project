@@ -1,4 +1,4 @@
-package com.core.platform;
+package com.core.platform.web;
 
 import com.core.utils.ReadOnly;
 import com.core.utils.StringUtils;

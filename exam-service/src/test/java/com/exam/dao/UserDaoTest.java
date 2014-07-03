@@ -12,13 +12,13 @@ import javax.inject.Inject;
 /**
  * @author hubery
  */
-@Ignore
 public class UserDaoTest extends SpringTest {
 
     @Inject
     private UserDao userDao;
 
     @Test
+    @Ignore
     public void testSave() {
         userDao.save(mockUser());
     }
@@ -32,6 +32,7 @@ public class UserDaoTest extends SpringTest {
     private User mockUser() {
         User user = new User();
         user.setName("hubery");
+        user.setPassword("1");
         user.setPermission(Permission.Admin);
         return user;
     }

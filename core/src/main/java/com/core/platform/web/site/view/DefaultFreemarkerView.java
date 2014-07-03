@@ -1,6 +1,6 @@
 package com.core.platform.web.site.view;
 
-import com.core.platform.DeploymentSettings;
+import com.core.platform.web.DeploymentSettings;
 import com.core.platform.web.site.SiteSettings;
 import com.core.platform.web.site.cdn.CDNSettings;
 import com.core.platform.web.site.tag.BodyTag;

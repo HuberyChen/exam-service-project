@@ -1,6 +1,6 @@
 package com.core.platform.web.site.tag;
 
-import com.core.platform.DeploymentSettings;
+import com.core.platform.web.DeploymentSettings;
 import com.core.platform.web.url.URLBuilder;
 import freemarker.core.Environment;
 import freemarker.template.TemplateDirectiveBody;

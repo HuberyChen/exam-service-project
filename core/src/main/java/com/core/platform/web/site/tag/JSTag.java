@@ -1,6 +1,6 @@
 package com.core.platform.web.site.tag;
 
-import com.core.platform.DeploymentSettings;
+import com.core.platform.web.DeploymentSettings;
 import com.core.platform.web.site.SiteSettings;
 import com.core.platform.web.site.cdn.CDNSettings;
 import freemarker.core.Environment;

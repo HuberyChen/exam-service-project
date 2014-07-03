@@ -1,6 +1,6 @@
 package com.core.platform.web.site.handler;
 
-import com.core.platform.DeploymentSettings;
+import com.core.platform.web.DeploymentSettings;
 import com.core.platform.web.url.URLBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

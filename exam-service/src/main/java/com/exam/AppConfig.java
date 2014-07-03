@@ -1,6 +1,7 @@
 package com.exam;
 
 import com.core.database.ConnectionPoolDataSource;
+import com.core.database.JDBCAccess;
 import com.core.database.JPAAccess;
 import com.core.platform.DefaultAppConfig;
 import org.springframework.context.annotation.Bean;
@@ -61,6 +62,13 @@ public class AppConfig extends DefaultAppConfig {
     @Bean
     public JPAAccess jpaAccess() {
         return new JPAAccess();
+    }
+
+    @Bean
+    public JDBCAccess jdbcAccess() {
+        JDBCAccess jdbcAccess = new JDBCAccess();
+        jdbcAccess.setDataSource(dataSource());
+        return jdbcAccess;
     }
 
 }

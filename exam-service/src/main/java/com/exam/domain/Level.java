@@ -4,5 +4,5 @@ package com.exam.domain;
  * @author hubery
  */
 public enum Level {
-    A, B, C
+    A, B, C, All
 }

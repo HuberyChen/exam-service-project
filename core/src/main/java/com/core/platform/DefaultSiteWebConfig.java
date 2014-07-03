@@ -1,6 +1,5 @@
 package com.core.platform;
 
-import com.core.platform.web.site.SiteSettings;
 import com.core.platform.web.site.cdn.CDNSettings;
 import com.core.platform.web.site.cdn.DefaultCDNSettings;
 import com.core.platform.web.site.session.SessionContext;
@@ -25,11 +24,6 @@ public class DefaultSiteWebConfig extends AbstractWebConfig {
     @Bean
     public CDNSettings cdnSettings() {
         return new DefaultCDNSettings();
-    }
-
-    @Bean
-    public SiteSettings siteSettings() {
-        return new SiteSettings();
     }
 
     @Bean

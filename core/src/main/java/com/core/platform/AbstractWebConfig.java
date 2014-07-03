@@ -2,6 +2,7 @@ package com.core.platform;
 
 import com.core.json.JSONBinder;
 import com.core.platform.monitor.web.MonitorControllerConfig;
+import com.core.platform.web.DeploymentSettings;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;

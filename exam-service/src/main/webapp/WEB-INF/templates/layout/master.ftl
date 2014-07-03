@@ -23,11 +23,12 @@
     <ul class="right">
         <li class="has-form"><a style="margin-left: 5px;" class="small radius button" href="<@url value='/signOut'/>">Logout</a></li>
     </ul>
-<@permissionAllow allow="admin">
     <ul class="right">
-        <li class="has-form"><a style="margin-left: 5px;" class="small radius button" href="<@url value='/analyzing'/>">Exam Service</a></li>
+        <li class="has-form"><a style="margin-left: 5px;" class="small radius button" href="<@url value='/exam/entering'/>">Exam Entering</a></li>
     </ul>
-</@permissionAllow>
+    <ul class="right">
+        <li class="has-form"><a style="margin-left: 5px;" class="small radius button" href="<@url value='/exam/simulation'/>">Exam Simulation</a></li>
+    </ul>
 </nav>
 
 <script>
