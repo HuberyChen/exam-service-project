@@ -33,9 +33,16 @@ public class BlankDaoTest extends SpringTest {
 
     @Test
     public void testFind() {
-        List<Integer> ids = blankDao.find(Section.One, 1);
-        Assert.assertEquals(ids.size(), 1);
-        Assert.assertEquals(ids.get(0).intValue(), 1);
+        for (int i = 0; i < 100; i++) {
+            List<Integer> ids = blankDao.find(Section.One, 1);
+            Assert.assertEquals(ids.get(0).intValue(), 12);
+        }
+    }
+
+    @Test
+    public void testFindById() {
+        Blank blank = blankDao.find(12);
+        Assert.assertEquals(blank.getSection(), Section.One);
     }
 
     private Blank mockBlank() {

@@ -90,6 +90,10 @@ public final class EntityRowMapper<T> implements RowMapper<T> {
             Field field = entry.getValue();
             Object value = JdbcUtils.getResultSetValue(resultSet, entry.getKey(), field.getType());
 
+            if (field.getType().isEnum()) {
+                field.set(result, Enum.valueOf((Class<Enum>) field.getType(), String.valueOf(value)));
+                continue;
+            }
             field.set(result, value);
         }
     }

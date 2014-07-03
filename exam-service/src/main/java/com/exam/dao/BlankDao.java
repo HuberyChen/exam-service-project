@@ -40,7 +40,7 @@ public class BlankDao {
 
     public List<Integer> find(Section section, int num) {
         List<Object> params = new ArrayList<>();
-        params.add(section);
+        params.add(section.toString());
         params.add(num);
         return jdbcAccess.find("select * from Blank where section = ? Order By Rand() Limit ?", new RowMapper<Integer>() {
             @Override
