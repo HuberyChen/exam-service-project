@@ -24,10 +24,10 @@
         <li class="has-form"><a style="margin-left: 5px;" class="small radius button" href="<@url value='/signOut'/>">Logout</a></li>
     </ul>
     <ul class="right">
-        <li class="has-form"><a style="margin-left: 5px;" class="small radius button" href="<@url value='/exam/entering'/>">Exam Entering</a></li>
+        <li class="has-form"><a style="margin-left: 5px;" class="small radius button" href="<@url value='/exam/entering'/>">Entering</a></li>
     </ul>
     <ul class="right">
-        <li class="has-form"><a style="margin-left: 5px;" class="small radius button" href="<@url value='/exam/simulation'/>">Exam Simulation</a></li>
+        <li class="has-form"><a style="margin-left: 5px;" class="small radius button" href="<@url value='/exam/simulation'/>">Simulation</a></li>
     </ul>
 </nav>
 

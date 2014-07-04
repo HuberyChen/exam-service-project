@@ -12,6 +12,7 @@ import javax.inject.Inject;
 /**
  * @author hubery
  */
+@Ignore
 public class UserDaoTest extends SpringTest {
 
     @Inject

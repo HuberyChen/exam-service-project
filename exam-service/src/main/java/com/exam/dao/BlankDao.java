@@ -4,6 +4,7 @@ import com.core.database.EntityRowMapper;
 import com.core.database.JDBCAccess;
 import com.core.database.JPAAccess;
 import com.exam.domain.Blank;
+import com.exam.domain.Level;
 import com.exam.domain.Section;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -38,11 +39,22 @@ public class BlankDao {
         return jpaAccess.find("from " + Blank.class.getName() + " where id in (:ids)", params);
     }
 
-    public List<Integer> find(Section section, int num) {
+    //TODO(Hubery) Level and section average
+    public List<Integer> find(Section section, Level level, int num) {
         List<Object> params = new ArrayList<>();
-        params.add(section.toString());
+        StringBuilder sql = new StringBuilder();
+        sql.append("select * from Blank where 1=1 ");
+        if (!Section.All.equals(section)) {
+            params.add(section.toString());
+            sql.append(" and section = ? ");
+        }
+        if (!Level.All.equals(level)) {
+            params.add(level.toString());
+            sql.append(" and level = ? ");
+        }
         params.add(num);
-        return jdbcAccess.find("select * from Blank where section = ? Order By Rand() Limit ?", new RowMapper<Integer>() {
+        sql.append(" Order By Rand() Limit ? ");
+        return jdbcAccess.find(sql.toString(), new RowMapper<Integer>() {
             @Override
             public Integer mapRow(ResultSet resultSet, int rowNum) throws SQLException {
                 return resultSet.getInt("Id");
