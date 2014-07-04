@@ -1,11 +1,8 @@
 package com.exam.web.controller;
 
+import com.exam.domain.Question;
 import com.exam.domain.Type;
-import com.exam.service.BlankService;
-import com.exam.service.CalculateService;
-import com.exam.service.DataConverter;
-import com.exam.service.SelectService;
-import com.exam.service.ShortAnswerService;
+import com.exam.service.QuestionService;
 import com.exam.service.SimulationConstant;
 import com.exam.web.interceptor.LoginRequired;
 import com.exam.web.interceptor.MasterLayout;
@@ -30,27 +27,19 @@ import java.util.Map;
 @Controller
 public class RESTController {
 
-    private SelectService selectService;
-    private BlankService blankService;
-    private CalculateService calculateService;
-    private ShortAnswerService shortAnswerService;
-    private DataConverter dataConverter;
+    private QuestionService questionService;
 
     @RequestMapping(value = "/exam/simulation", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> simulation(@Valid @RequestBody SimulateRequest request) {
         Map<String, Object> model = new HashMap<>();
-        if (Type.Select.equals(request.getType()) || Type.All.equals(request.getType())) {
-            model.put("selects", selectService.find(request.getSection(), request.getLevel(), SimulationConstant.BLANK_NUM));
-        }
-        if (Type.Blank.equals(request.getType()) || Type.All.equals(request.getType())) {
-            model.put("blanks", blankService.find(request.getSection(), request.getLevel(), SimulationConstant.BLANK_NUM));
-        }
-        if (Type.Calculate.equals(request.getType()) || Type.All.equals(request.getType())) {
-            model.put("calculates", calculateService.find(request.getSection(), request.getLevel(), SimulationConstant.BLANK_NUM));
-        }
-        if (Type.ShortAnswer.equals(request.getType()) || Type.All.equals(request.getType())) {
-            model.put("shortAnswers", shortAnswerService.find(request.getSection(), request.getLevel(), SimulationConstant.BLANK_NUM));
+        if (!Type.All.equals(request.getType())) {
+            Type type = request.getType();
+            model.put(type.name(), questionService.find(type, request.getSection(), request.getLevel(), SimulationConstant.getNum(type)));
+        } else {
+            for (Type type : Type.find()) {
+                model.put(type.name(), questionService.find(type, request.getSection(), request.getLevel(), SimulationConstant.getNum(type)));
+            }
         }
         return model;
     }
@@ -59,45 +48,30 @@ public class RESTController {
     @ResponseBody
     public Map<String, Object> entering(@Valid @RequestBody EnterRequest request) {
         Map<String, Object> model = new HashMap<>();
-        if (Type.Select.equals(request.getType())) {
-            selectService.save(dataConverter.toSelect(request));
-        }
-        if (Type.Blank.equals(request.getType())) {
-            blankService.save(dataConverter.toBlank(request));
-        }
-        if (Type.Calculate.equals(request.getType())) {
-            calculateService.save(dataConverter.toCalculate(request));
-        }
-        if (Type.ShortAnswer.equals(request.getType())) {
-            shortAnswerService.save(dataConverter.toShortAnswer(request));
-        }
+        questionService.save(toQuestion(request));
         model.put("errMsg", "success");
         return model;
     }
 
-    @Inject
-    public void setDataConverter(DataConverter dataConverter) {
-        this.dataConverter = dataConverter;
+    private Question toQuestion(EnterRequest request) {
+        Question question = new Question();
+        question.setName(request.getName());
+        question.setSection(request.getSection());
+        question.setLevel(request.getLevel());
+        question.setType(request.getType());
+        if (Type.Select.equals(request.getType())) {
+            question.setQuestion1(request.getQuestion1());
+            question.setQuestion2(request.getQuestion2());
+            question.setQuestion3(request.getQuestion3());
+            question.setQuestion4(request.getQuestion4());
+        }
+        question.setAnswer(request.getAnswer());
+        return question;
     }
 
-    @Inject
-    public void setSelectService(SelectService selectService) {
-        this.selectService = selectService;
-    }
 
     @Inject
-    public void setBlankService(BlankService blankService) {
-        this.blankService = blankService;
+    public void setQuestionService(QuestionService questionService) {
+        this.questionService = questionService;
     }
-
-    @Inject
-    public void setCalculateService(CalculateService calculateService) {
-        this.calculateService = calculateService;
-    }
-
-    @Inject
-    public void setShortAnswerService(ShortAnswerService shortAnswerService) {
-        this.shortAnswerService = shortAnswerService;
-    }
-
 }

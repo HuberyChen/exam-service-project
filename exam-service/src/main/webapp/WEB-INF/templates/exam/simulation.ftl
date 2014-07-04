@@ -90,10 +90,10 @@
         $("#simulateForm").ajaxSubmit({callback: function (result) {
             $('#loadingLogo').css("display", "none");
             $("#button").attr("disabled", false);
-            var selects = result.selects;
-            var blanks = result.blanks;
-            var calculates = result.calculates;
-            var shortAnswers = result.shortAnswers;
+            var selects = result.Select;
+            var blanks = result.Blank;
+            var calculates = result.Calculate;
+            var shortAnswers = result.ShortAnswer;
             if (selects.length > 0) {
                 var inputValue = "<div>Select</div><br/><br/>";
                 for (var i = 1; i <= selects.length; i++) {
