@@ -19,6 +19,7 @@ public class Question {
     @Column(name = "Id")
     private int id;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "Type")
     private Type type;
 

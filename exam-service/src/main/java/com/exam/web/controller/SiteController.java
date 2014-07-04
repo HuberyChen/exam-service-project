@@ -26,6 +26,9 @@ public class SiteController {
 
     @RequestMapping(value = "/exam/entering", method = RequestMethod.GET)
     public String examEntering(Map<String, Object> model) {
+        model.put("sections", Section.find());
+        model.put("levels", Level.find());
+        model.put("types", Type.find());
         return "exam/entering";
     }
 

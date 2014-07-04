@@ -76,16 +76,21 @@
             <fieldset>
                 <label style="margin-top:10px;">Name:</label><br/>
 
-                <input type='text' id='name'/><br/>
+                <textarea rows="2" name="name" id="name" cols="20"></textarea>
 
-                <div id="select" type="hidden">
-                    <input type="text" id="question1"><br/>
-                    <input type="text" id="question2"><br/>
-                    <input type="text" id="question3"><br/>
-                    <input type="text" id="question4"><br/>
+                <div id="select">
+                    <label style="margin-top:10px;">A:</label><br/>
+                    <input type="text" name="question1"><br/>
+                    <label style="margin-top:10px;">B:</label><br/>
+                    <input type="text" name="question2"><br/>
+                    <label style="margin-top:10px;">C:</label><br/>
+                    <input type="text" name="question3"><br/>
+                    <label style="margin-top:10px;">D:</label><br/>
+                    <input type="text" name="question4"><br/>
                 </div>
 
-                <input type='text' id='answer'/><br/>
+                <label style="margin-top:10px;">Answer:</label><br/>
+                <textarea rows="2" name="answer" id="answer" cols="20"></textarea>
             </fieldset>
         </div>
 
@@ -104,7 +109,7 @@
     function enter() {
         $("#loadingLogo").css("display", "inline-block");
         $("#button").attr('disabled', true);
-        $("#simulateForm").ajaxSubmit({callback: function (result) {
+        $("#enteringForm").ajaxSubmit({callback: function (result) {
             alert(result.errMsg);
             $('#loadingLogo').css("display", "none");
             $("#button").attr("disabled", false);

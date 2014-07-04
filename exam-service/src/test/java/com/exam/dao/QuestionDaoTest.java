@@ -22,7 +22,6 @@ public class QuestionDaoTest extends SpringTest {
     private QuestionDao questionDao;
 
     @Test
-    @Ignore
     public void testSave() {
         questionDao.save(mockQuestion());
     }
